@@ -15,13 +15,18 @@ export default createMuiTheme(
       secondary: {
         main: '#e16e0e',
       },
+      contrastThreshold: 3,
+      // Usado pelas funções abaixo para mudança de uma cor de luminância por aproximadamente
+      // dois índices dentro de sua paleta tonal.
+      // Por exemplo, mude de Red 500 para Red 300 ou Red 700.
+      tonalOffset: 0.2,
     },
     typography: {
       fontFamily: [
         'Montserrat',
         'serif',
       ].join(','),
-      fontSize: 12,
+      fontSize: 14,
     },
     overrides: {
       MuiCssBaseline: {
@@ -31,6 +36,13 @@ export default createMuiTheme(
             backgroundColor: '#f7f7f7',
             color: '#2b385b',
           },
+        },
+      },
+      MuiFab: {
+        root: {
+          bottom: '20px',
+          right: '30px',
+          position: 'fixed',
         },
       },
     },
