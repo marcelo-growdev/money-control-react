@@ -13,17 +13,20 @@ export default function Header() {
   const incomeOut = useSelector((state) => state.incomeOut);
 
   const total = useMemo(() => {
-    const totalIn = incomeIn.reduce((current, next) => {
-      const result = parseInt(current.value, 10) + parseInt(next.value, 10);
-      return result;
-    }, { value: 0 });
+    if (incomeIn.length || incomeOut.length) {
+      const totalIn = incomeIn.reduce((current, next) => {
+        const result = current + parseInt(next.value, 10);
+        return result;
+      }, 0);
 
-    const totalOut = incomeOut.reduce((current, next) => {
-      const result = parseInt(current.value, 10) + parseInt(next.value, 10);
-      return result;
-    }, { value: 0 });
+      const totalOut = incomeOut.reduce((current, next) => {
+        const result = current + parseInt(next.value, 10);
+        return result;
+      }, 0);
 
-    return totalIn - totalOut;
+      return totalIn - totalOut;
+    }
+    return 0;
   }, [incomeIn, incomeOut]);
 
   return (
