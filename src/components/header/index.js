@@ -7,10 +7,13 @@ import IconButton from '@material-ui/core/IconButton';
 
 import useStyles from './styles';
 
+import { selectAll as selectAllIncomeIn } from '../../store/income-in/incomeInSlice';
+import { selectAll as selectAllIncomeOut } from '../../store/income-out/incomeOutSlice';
+
 export default function Header() {
   const classes = useStyles();
-  const incomeIn = useSelector((state) => state.incomeIn);
-  const incomeOut = useSelector((state) => state.incomeOut);
+  const incomeIn = useSelector(selectAllIncomeIn);
+  const incomeOut = useSelector(selectAllIncomeOut);
 
   const total = useMemo(() => {
     if (incomeIn.length || incomeOut.length) {

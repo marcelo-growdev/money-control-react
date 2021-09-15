@@ -11,9 +11,9 @@ import { ArrowBack } from '@material-ui/icons';
 
 import Alert from '../../components/alert';
 import useStyles from './styles';
-import { setAlert } from '../../store/modules/alert/actions';
-import { setIncomeIn } from '../../store/modules/income-in/actions';
-import { setIncomeOut } from '../../store/modules/income-out/actions';
+// import { setAlert } from '../../store/modules/alert/actions';
+import { addOne as addOneIn } from '../../store/income-in/incomeInSlice';
+import { addOne as addOneOut } from '../../store/income-out/incomeOutSlice';
 
 export default function Register() {
   const classes = useStyles();
@@ -44,11 +44,11 @@ export default function Register() {
 
   const handleSubmit = () => {
     if (type === 1) {
-      dispatch(setIncomeIn({ description, value }));
+      dispatch(addOneIn({ uid: 1, description, value }));
     } else {
-      dispatch(setIncomeOut({ description, value }));
+      dispatch(addOneOut({ uid: 2, description, value }));
     }
-    dispatch(setAlert(true));
+    // dispatch(setAlert(true));
 
     handleReset();
   };

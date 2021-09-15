@@ -5,7 +5,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { setAlert } from '../../store/modules/alert/actions';
+// import { setAlert } from '../../store/modules/alert/actions';
 
 function MyAlert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -22,21 +22,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Alert({ type, msg, show }) {
   const classes = useStyles();
-  const showAlert = useSelector((state) => state.showAlert);
-  const incomeOut = useSelector((state) => state.incomeOut);
+  // const showAlert = useSelector((state) => state.showAlert);
+  // const incomeOut = useSelector((state) => state.incomeOut);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setOpen(showAlert);
-  }, [showAlert]);
+  // useEffect(() => {
+  //   setOpen(showAlert);
+  // }, [showAlert]);
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+    // if (reason === 'clickaway') {
+    //   return;
+    // }
 
-    dispatch(setAlert(false));
+    // dispatch(setAlert(false));
   };
 
   return (

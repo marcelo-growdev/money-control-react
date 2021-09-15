@@ -11,7 +11,8 @@ import DataTable from '../../components/data-table';
 
 import useStyles from './styles';
 
-import { getIncomeIn, setIncomeIn } from '../../store/modules/income-in/actions';
+import { selectAll as selectAllIncomeIn } from '../../store/income-in/incomeInSlice';
+import { selectAll as selectAllIncomeOut } from '../../store/income-out/incomeOutSlice';
 
 export default function Home() {
   const history = useHistory();
@@ -19,8 +20,8 @@ export default function Home() {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const incomeIn = useSelector((state) => state.incomeIn);
-  const incomeOut = useSelector((state) => state.incomeOut);
+  const incomeIn = useSelector(selectAllIncomeIn);
+  const incomeOut = useSelector(selectAllIncomeOut);
 
   const [incomeInLocal, setIncomeInLocal] = useState([]);
   const [incomeOutLocal, setIncomeOutLocal] = useState([]);
